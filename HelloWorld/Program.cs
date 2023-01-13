@@ -1,8 +1,47 @@
-﻿Console.WriteLine("Howdy Y'all!! Press Enter to Run Program");
-Console.ReadKey(); 
+﻿string name;
+
+do
+{
+    Console.WriteLine("Please enter your name");
+    name = Console.ReadLine();
+} while (name == null || name == "");
+
+    Console.WriteLine($"Howdy {name}!! Press Enter to Run Program");
+
+string favoriteColor;
+
+do
+{
+    Console.WriteLine("Please enter your favorite Color");
+    favoriteColor = Console.ReadLine();
+} while (favoriteColor == null || favoriteColor == "");
 
 //create a collection of strings for animals
 var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan" };
+
+//random number generator
+Random rnd = new Random();
+int num = rnd.Next(0, animals.Length);
+
+Console.WriteLine($"Would you like a {favoriteColor} {animals[num]}? (y/n)");
+
+string animalChoice = Console.ReadLine();
+
+while (animalChoice != "y" && animalChoice != "n")
+{
+    Console.Write("Please enter 'y' or 'n'");
+    animalChoice = Console.ReadLine();
+}
+
+if (animalChoice == "y")
+{
+    Console.WriteLine($"Congrats! You now own a {favoriteColor} {animals[num]}");
+}
+else
+{
+    Console.WriteLine("OK!");
+}
+
 
 //Asks user if they want to see a list of animals
 Console.Write("would you like to see a list of animals? (y/n)");
